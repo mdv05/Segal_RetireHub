@@ -6,82 +6,101 @@
     <title>Segal RetireHub - Financial Wellness Platform</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --segal-navy: #1B365D;
-            --segal-navy-dark: #0f1f2e;
+            --segal-navy: #2B4C77;
+            --segal-navy-dark: #1a3354;
             --segal-turquoise: #5BC5C7;
-            --segal-turquoise-light: #8ED1D2;
+            --segal-turquoise-light: #7CCFD1;
+            --segal-turquoise-dark: #4AAFB1;
             --segal-gray: #f8f9fa;
-            --segal-dark-gray: #6c757d;
+            --segal-dark-gray: #6C7B8A;
             --segal-light-gray: #e9ecef;
+            --segal-text-dark: #2c3e50;
+        }
+
+        * {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--segal-text-dark);
+            font-weight: 400;
         }
 
         .navbar {
             background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.8rem;
+            font-weight: 600;
+            font-size: 1.5rem;
             color: var(--segal-navy) !important;
             display: flex;
             align-items: center;
+            letter-spacing: -0.5px;
         }
 
         .segal-logo {
-            width: 40px;
-            height: 40px;
-            margin-right: 0.75rem;
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
             display: inline-block;
+            position: relative;
         }
 
         .segal-star {
             width: 100%;
             height: 100%;
-            background: var(--segal-turquoise);
             position: relative;
-            transform: rotate(45deg);
-            border-radius: 2px;
         }
 
-        .segal-star:before,
-        .segal-star:after {
+        .segal-star::before,
+        .segal-star::after,
+        .segal-star {
+            background: var(--segal-turquoise);
+        }
+
+        .segal-star::before,
+        .segal-star::after {
             content: '';
             position: absolute;
             width: 100%;
             height: 100%;
-            background: var(--segal-turquoise);
             border-radius: 2px;
         }
 
-        .segal-star:before {
+        .segal-star::before {
             transform: rotate(45deg);
         }
 
-        .segal-star:after {
+        .segal-star::after {
             transform: rotate(-45deg);
+        }
+
+        .segal-star {
+            border-radius: 2px;
+            transform: rotate(0deg);
         }
 
         .company-tag {
             color: var(--segal-dark-gray);
-            font-weight: normal;
-            font-size: 1rem;
-            margin-left: 0.5rem;
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-left: 8px;
         }
 
         .nav-link {
             color: var(--segal-dark-gray) !important;
             font-weight: 500;
-            margin: 0 0.5rem;
+            margin: 0 1rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
@@ -89,12 +108,21 @@
         }
 
         .hero-section {
-            background: linear-gradient(rgba(27, 54, 93, 0.8), rgba(27, 54, 93, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9fa" width="1200" height="600"/></svg>');
-            background-size: cover;
+            background: linear-gradient(135deg, var(--segal-navy) 0%, var(--segal-navy-dark) 100%);
             color: white;
-            padding: 5rem 0;
-            text-align: center;
+            padding: 6rem 0;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="dots" patternUnits="userSpaceOnUse" width="40" height="40"><circle cx="20" cy="20" r="2" fill="rgba(91,197,199,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23dots)"/></svg>');
         }
 
         .hero-content {
@@ -105,83 +133,101 @@
         .hero-section h1 {
             font-weight: 300;
             margin-bottom: 1.5rem;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .hero-section .lead {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
         }
 
         .card {
             border: none;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .btn-primary {
-            background-color: var(--segal-turquoise);
-            border-color: var(--segal-turquoise);
+            background: linear-gradient(135deg, var(--segal-turquoise) 0%, var(--segal-turquoise-dark) 100%);
+            border: none;
             font-weight: 500;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(91, 197, 199, 0.3);
         }
 
         .btn-primary:hover {
-            background-color: #4aa8aa;
-            border-color: #4aa8aa;
+            background: linear-gradient(135deg, var(--segal-turquoise-dark) 0%, var(--segal-turquoise) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(91, 197, 199, 0.4);
         }
 
         .btn-outline-light {
-            border-color: white;
+            border: 2px solid rgba(255,255,255,0.3);
             color: white;
             font-weight: 500;
-            padding: 0.75rem 2rem;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
         .btn-outline-light:hover {
             background-color: white;
             color: var(--segal-navy);
+            border-color: white;
+            transform: translateY(-2px);
         }
 
         .btn-outline-primary {
             color: var(--segal-turquoise);
-            border-color: var(--segal-turquoise);
+            border: 2px solid var(--segal-turquoise);
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .btn-outline-primary:hover {
             background-color: var(--segal-turquoise);
             border-color: var(--segal-turquoise);
+            transform: translateY(-2px);
         }
 
         .section-title {
             color: var(--segal-navy);
             font-weight: 600;
             margin-bottom: 2rem;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
         }
 
         .footer {
-            background-color: var(--segal-navy);
+            background: linear-gradient(135deg, var(--segal-navy) 0%, var(--segal-navy-dark) 100%);
             color: white;
-            padding: 2.5rem 0;
+            padding: 3rem 0;
             margin-top: 4rem;
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--segal-turquoise);
             margin-bottom: 1.5rem;
         }
 
         .dashboard-sidebar {
-            background-color: var(--segal-gray);
+            background: linear-gradient(180deg, #ffffff 0%, var(--segal-gray) 100%);
             min-height: calc(100vh - 76px);
             padding: 2rem 1rem;
             border-right: 1px solid var(--segal-light-gray);
@@ -189,10 +235,10 @@
 
         .sidebar-link {
             display: block;
-            padding: 0.875rem 1rem;
+            padding: 1rem 1.25rem;
             color: var(--segal-navy);
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 0.5rem;
             transition: all 0.3s ease;
             font-weight: 500;
@@ -200,28 +246,36 @@
         }
 
         .sidebar-link:hover {
-            background-color: #e3e8ed;
-            color: var(--segal-navy);
+            background: linear-gradient(135deg, var(--segal-turquoise-light) 0%, var(--segal-turquoise) 100%);
+            color: white;
+            transform: translateX(4px);
         }
 
         .sidebar-link.active {
-            background-color: var(--segal-turquoise);
+            background: linear-gradient(135deg, var(--segal-turquoise) 0%, var(--segal-turquoise-dark) 100%);
             color: white;
+            box-shadow: 0 4px 12px rgba(91, 197, 199, 0.3);
         }
 
         .content-card {
             background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
+            border-radius: 12px;
+            padding: 1.75rem;
             margin-bottom: 1rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
             border-left: 4px solid var(--segal-turquoise);
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
 
         .calculator-placeholder {
-            background: var(--segal-gray);
-            border: 2px dashed var(--segal-dark-gray);
-            border-radius: 8px;
+            background: linear-gradient(135deg, var(--segal-gray) 0%, #ffffff 100%);
+            border: 2px dashed var(--segal-turquoise);
+            border-radius: 12px;
             padding: 3rem;
             text-align: center;
             color: var(--segal-dark-gray);
@@ -229,28 +283,30 @@
 
         .admin-panel {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .role-badge {
             font-size: 0.75rem;
-            padding: 0.3rem 0.8rem;
-            border-radius: 12px;
-            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .role-admin { 
-            background-color: #dc3545; 
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
             color: white; 
         }
         .role-organization { 
-            background-color: var(--segal-turquoise); 
+            background: linear-gradient(135deg, var(--segal-turquoise) 0%, var(--segal-turquoise-dark) 100%);
             color: white; 
         }
         .role-employee { 
-            background-color: #198754; 
+            background: linear-gradient(135deg, #198754 0%, #157347 100%);
             color: white; 
         }
 
@@ -264,8 +320,8 @@
 
         .access-level-card {
             text-align: center;
-            padding: 2rem 1rem;
-            border-radius: 8px;
+            padding: 2.5rem 1.5rem;
+            border-radius: 12px;
             background: white;
             border: 2px solid var(--segal-light-gray);
             transition: all 0.3s ease;
@@ -273,30 +329,32 @@
 
         .access-level-card:hover {
             border-color: var(--segal-turquoise);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(91, 197, 199, 0.2);
         }
 
         .segal-branding {
-            background: white;
+            background: linear-gradient(135deg, #ffffff 0%, var(--segal-gray) 100%);
             padding: 2rem;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 2rem;
             border-left: 4px solid var(--segal-turquoise);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
         }
 
         .company-info {
-            background: linear-gradient(90deg, var(--segal-navy), #2c4a6b);
+            background: linear-gradient(135deg, var(--segal-navy) 0%, var(--segal-navy-dark) 100%);
             color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
             margin-bottom: 1rem;
         }
 
         .alert-info {
-            background-color: #e3f2fd;
-            border-color: var(--segal-turquoise);
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+            border: 1px solid var(--segal-turquoise);
             color: var(--segal-navy);
+            border-radius: 8px;
         }
 
         .text-primary {
@@ -304,27 +362,67 @@
         }
 
         .welcome-image-section {
-            background-color: #f5f5f5;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             padding: 4rem 0;
         }
 
         .welcome-image {
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
         }
 
         .login-card {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .newsletter-signup {
-            background-color: var(--segal-gray);
-            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--segal-gray) 0%, #ffffff 100%);
+            padding: 4rem 0;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            padding: 0.875rem 1rem;
+            transition: all 0.3s ease;
         }
 
         .form-control:focus {
             border-color: var(--segal-turquoise);
-            box-shadow: 0 0 0 0.2rem rgba(91, 197, 199, 0.25);
+            box-shadow: 0 0 0 0.25rem rgba(91, 197, 199, 0.15);
+        }
+
+        /* Enhanced typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .lead {
+            font-weight: 400;
+            color: var(--segal-dark-gray);
+        }
+
+        /* Contact Us button styling to match Segal design */
+        .btn-contact {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            font-weight: 600;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            border: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-contact:hover {
+            background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%);
+            transform: translateY(-2px);
+            color: white;
         }
     </style>
 </head>
@@ -343,7 +441,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item" id="dashboardNav" style="display: none;">
                         <a class="nav-link" href="#" onclick="showView('dashboard')">
                             <i class="fas fa-tachometer-alt me-1"></i>Dashboard
@@ -360,18 +458,19 @@
                         </a>
                     </li>
                     <li class="nav-item" id="userNav" style="display: none;">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user me-1"></i><span id="currentUsername"></span>
-                            <span class="role-badge" id="currentRole"></span>
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user me-2"></i>
+                            <span id="currentUsername"></span>
+                            <span class="role-badge ms-2" id="currentRole"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onclick="logout()">
-                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
                             </a></li>
                         </ul>
                     </li>
                     <li class="nav-item" id="loginNav">
-                        <a class="nav-link btn btn-primary text-white px-3" href="#" onclick="showView('login')">
+                        <a class="nav-link btn btn-primary text-white px-4" href="#" onclick="showView('login')">
                             Login
                         </a>
                     </li>
@@ -384,12 +483,18 @@
     <div id="homeView" class="view active">
         <div class="hero-section">
             <div class="container">
-                <div class="hero-content">
-                    <h1 class="display-4 mb-4">Financial Wellness and Retirement Planning<br>That Improves Lives</h1>
+                <div class="hero-content text-center">
+                    <h1 class="display-4 mb-4">Benefits and HR Consulting<br>That Improves Lives</h1>
                     <p class="lead mb-4">Our solutions bring millions of people peace of mind through personalized retirement planning.<br>
-                    <small>Powered by Segal's 80+ years of trusted expertise</small></p>
-                    <a href="#" onclick="showView('login')" class="btn btn-primary btn-lg me-3">Get Started</a>
-                    <a href="#" onclick="showView('login')" class="btn btn-outline-light btn-lg">Login</a>
+                    <small class="opacity-75">Find out how our financial wellness platform can help your organization.</small></p>
+                    <div class="d-flex justify-content-center gap-3 flex-wrap">
+                        <a href="#" onclick="showView('login')" class="btn btn-contact btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Contact Us
+                        </a>
+                        <a href="#" onclick="showView('login')" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -398,15 +503,15 @@
         <div class="welcome-image-section">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <img id="welcomeCoupleImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f8ff' width='600' height='400'/%3E%3Ctext x='50%25' y='40%25' text-anchor='middle' fill='%235BC5C7' font-size='24' font-family='Arial'%3EHappy Couple%3C/text%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%231B365D' font-size='16' font-family='Arial'%3EPlanning Their Financial Future%3C/text%3E%3Ccircle cx='200' cy='200' r='80' fill='%235BC5C7' opacity='0.3'/%3E%3Ccircle cx='400' cy='200' r='60' fill='%231B365D' opacity='0.3'/%3E%3C/svg%3E" 
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img id="welcomeCoupleImage" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f8ff' width='600' height='400'/%3E%3Ctext x='50%25' y='40%25' text-anchor='middle' fill='%235BC5C7' font-size='24' font-family='Inter'%3EHappy Couple%3C/text%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%232B4C77' font-size='16' font-family='Inter'%3EPlanning Their Financial Future%3C/text%3E%3Ccircle cx='200' cy='200' r='80' fill='%235BC5C7' opacity='0.3'/%3E%3Ccircle cx='400' cy='200' r='60' fill='%232B4C77' opacity='0.3'/%3E%3C/svg%3E" 
                              alt="Happy couple planning their financial future" class="img-fluid welcome-image">
                     </div>
                     <div class="col-lg-6">
                         <h2 class="section-title">Retirement planning customized for you</h2>
-                        <p class="lead text-muted mb-4">Every organization comes to us with a unique set of challenges and opportunities. What do we provide? Personalized advice, not one-size-fits-all products.</p>
-                        <p>And we know industries. Our experience spans many sectors, with deep expertise in organizations large and small, public and private.</p>
-                        <a href="#" class="btn btn-primary">
+                        <p class="lead mb-4">Every organization comes to us with a unique set of challenges and opportunities. What do we provide? Personalized advice, not one-size-fits-all products.</p>
+                        <p class="mb-4">And we know industries. Our experience spans many sectors, with deep expertise in organizations large and small, public and private.</p>
+                        <a href="#" class="btn btn-primary btn-lg">
                             See Who We Help <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                     </div>
@@ -419,28 +524,27 @@
             <div class="segal-branding">
                 <div class="row align-items-center">
                     <div class="col-md-8">
-                        <h5 class="mb-2">
-                            <div class="segal-logo me-2" style="width: 24px; height: 24px; display: inline-block;">
+                        <h5 class="mb-3 d-flex align-items-center">
+                            <div class="segal-logo me-3" style="width: 28px; height: 28px;">
                                 <div class="segal-star"></div>
                             </div>
-                            Powered by Segal
+                            <span>Powered by Segal</span>
                         </h5>
-                        <p class="mb-0">Delivering trusted advice that improves lives since 1939. Segal RetireHub brings our expertise directly to your organization's employees with personalized, accessible financial wellness tools.</p>
+                        <p class="mb-0 lead">Delivering trusted advice that improves lives since 1939. Segal RetireHub brings our expertise directly to your organization's employees with personalized, accessible financial wellness tools.</p>
                     </div>
                     <div class="col-md-4 text-end">
-                        <small class="text-muted">A Segal Group Company Product</small>
+                        <small class="text-muted fw-medium">A Segal Group Company Product</small>
                     </div>
                 </div>
+            </div>
+
+            <!-- Stay informed section -->
+            <div class="text-center mb-5">
+                <h2 class="section-title">Stay informed. Get the latest insight.</h2>
+                <p class="lead">We provide comprehensive tools and resources to help you make informed financial decisions throughout your career, backed by Segal's industry-leading expertise.</p>
             </div>
 
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Why Choose Segal RetireHub?</h2>
-                    <p class="lead text-muted">We provide comprehensive tools and resources to help you make informed financial decisions throughout your career, backed by Segal's industry-leading expertise.</p>
-                </div>
-            </div>
-
-            <div class="row mt-5">
                 <div class="col-md-4 text-center mb-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -469,6 +573,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <div class="row mt-5">
                 <div class="col-lg-10 mx-auto">
@@ -508,23 +614,30 @@
         <div class="newsletter-signup">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 mx-auto text-center">
-                        <h3 class="mb-3">Don't miss out. Join 16,000 others who already get the latest insights from Segal.</h3>
-                        <div class="row g-2">
-                            <div class="col-md-3">
+                    <div class="col-lg-10 mx-auto text-center">
+                        <h2 class="section-title mb-4">Stay informed. Get the latest insight.</h2>
+                        <p class="lead mb-4">Don't miss out. Join 16,000 others who already get the latest insights from Segal on retirement planning, policy changes, and financial wellness strategies.</p>
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-md-3 col-sm-6">
                                 <input type="text" class="form-control" placeholder="First Name">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <input type="text" class="form-control" placeholder="Last Name">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <input type="email" class="form-control" placeholder="Email Address">
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
                                 <button class="btn btn-primary w-100">
                                     Sign Up <i class="fas fa-arrow-right ms-2"></i>
                                 </button>
                             </div>
+                        </div>
+                        <div class="mt-3">
+                            <small class="text-muted">
+                                <i class="fas fa-shield-alt me-1"></i>
+                                We respect your privacy. Unsubscribe at any time.
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -538,12 +651,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="card login-card">
-                        <div class="card-header text-center text-white" style="background-color: var(--segal-navy);">
-                            <h4>
-                                <div class="segal-logo me-2" style="width: 24px; height: 24px; display: inline-block;">
-                                    <div class="segal-star" style="background: white;"></div>
+                        <div class="card-header text-center text-white" style="background: linear-gradient(135deg, var(--segal-navy) 0%, var(--segal-navy-dark) 100%);">
+                            <h4 class="mb-0 d-flex align-items-center justify-content-center">
+                                <div style="width: 28px; height: 28px; margin-right: 12px; position: relative;">
+                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
+                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
+                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
                                 </div>
-                                Segal RetireHub Login
+                                <span>Segal RetireHub Login</span>
                             </h4>
                         </div>
                         <div class="card-body">
@@ -611,14 +726,16 @@
                         <!-- Company Info Section -->
                         <div class="company-info" id="companyInfo">
                             <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h5 class="mb-1">
-                                        <div class="segal-logo me-2" style="width: 24px; height: 24px; display: inline-block;">
-                                            <div class="segal-star" style="background: white;"></div>
-                                        </div>
-                                        Segal RetireHub | <span id="dashboardCompany"></span>
-                                    </h5>
-                                    <p class="mb-0">Welcome, <strong id="dashboardUsername"></strong>!</p>
+                                <div class="d-flex align-items-center">
+                                    <div style="width: 32px; height: 32px; margin-right: 16px; position: relative;">
+                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
+                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
+                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Segal RetireHub | <span id="dashboardCompany"></span></h5>
+                                        <p class="mb-0 opacity-90">Welcome, <strong id="dashboardUsername"></strong>!</p>
+                                    </div>
                                 </div>
                                 <span class="role-badge" id="dashboardRole"></span>
                             </div>
@@ -698,11 +815,13 @@
     <!-- Admin View -->
     <div id="adminView" class="view">
         <div class="container mt-4">
-            <h2 class="section-title">
-                <div class="segal-logo me-2" style="width: 32px; height: 32px; display: inline-block;">
-                    <div class="segal-star"></div>
+            <h2 class="section-title d-flex align-items-center">
+                <div style="width: 36px; height: 36px; margin-right: 16px; position: relative;">
+                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute;"></div>
+                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
+                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
                 </div>
-                Segal Admin Panel
+                <span>Segal Admin Panel</span>
             </h2>
             
             <div class="admin-panel">
@@ -890,13 +1009,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>
-                        <div class="segal-logo me-2" style="width: 24px; height: 24px; display: inline-block;">
-                            <div class="segal-star" style="background: white;"></div>
+                    <h5 class="d-flex align-items-center mb-3">
+                        <div style="width: 28px; height: 28px; margin-right: 12px; position: relative;">
+                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
+                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
+                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
                         </div>
-                        Segal RetireHub
+                        <span>Segal RetireHub</span>
                     </h5>
-                    <p>Delivering trusted advice that improves lives. Powered by The Segal Group's 80+ years of expertise in benefits consulting and financial wellness.</p>
+                    <p class="mb-0">Delivering trusted advice that improves lives. Powered by The Segal Group's 80+ years of expertise in benefits consulting and financial wellness.</p>
                 </div>
                 <div class="col-md-3">
                     <h6>Resources</h6>
@@ -952,7 +1073,7 @@
 
         // Platform settings that admins can modify
         let platformSettings = {
-            coupleImageUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f8ff' width='600' height='400'/%3E%3Ctext x='50%25' y='40%25' text-anchor='middle' fill='%235BC5C7' font-size='24' font-family='Arial'%3EHappy Couple%3C/text%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%231B365D' font-size='16' font-family='Arial'%3EPlanning Their Financial Future%3C/text%3E%3Ccircle cx='200' cy='200' r='80' fill='%235BC5C7' opacity='0.3'/%3E%3Ccircle cx='400' cy='200' r='60' fill='%231B365D' opacity='0.3'/%3E%3C/svg%3E",
+            coupleImageUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f8ff' width='600' height='400'/%3E%3Ctext x='50%25' y='40%25' text-anchor='middle' fill='%235BC5C7' font-size='24' font-family='Inter'%3EHappy Couple%3C/text%3E%3Ctext x='50%25' y='55%25' text-anchor='middle' fill='%232B4C77' font-size='16' font-family='Inter'%3EPlanning Their Financial Future%3C/text%3E%3Ccircle cx='200' cy='200' r='80' fill='%235BC5C7' opacity='0.3'/%3E%3Ccircle cx='400' cy='200' r='60' fill='%232B4C77' opacity='0.3'/%3E%3C/svg%3E",
             calculatorUrl: "#calculator-placeholder",
             retireChatUrl: "#retirechat-placeholder"
         };
