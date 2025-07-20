@@ -58,34 +58,8 @@
             width: 100%;
             height: 100%;
             position: relative;
-        }
-
-        .segal-star::before,
-        .segal-star::after,
-        .segal-star {
             background: var(--segal-turquoise);
-        }
-
-        .segal-star::before,
-        .segal-star::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 2px;
-        }
-
-        .segal-star::before {
-            transform: rotate(45deg);
-        }
-
-        .segal-star::after {
-            transform: rotate(-45deg);
-        }
-
-        .segal-star {
-            border-radius: 2px;
-            transform: rotate(0deg);
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
         }
 
         .company-tag {
@@ -525,8 +499,8 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h5 class="mb-3 d-flex align-items-center">
-                            <div class="segal-logo me-3" style="width: 28px; height: 28px;">
-                                <div class="segal-star"></div>
+                            <div style="width: 28px; height: 28px; margin-right: 12px; position: relative;">
+                                <div style="width: 100%; height: 100%; background: var(--segal-turquoise); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
                             </div>
                             <span>Powered by Segal</span>
                         </h5>
@@ -654,9 +628,7 @@
                         <div class="card-header text-center text-white" style="background: linear-gradient(135deg, var(--segal-navy) 0%, var(--segal-navy-dark) 100%);">
                             <h4 class="mb-0 d-flex align-items-center justify-content-center">
                                 <div style="width: 28px; height: 28px; margin-right: 12px; position: relative;">
-                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
-                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
-                                    <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
+                                    <div style="width: 100%; height: 100%; background: white; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
                                 </div>
                                 <span>Segal RetireHub Login</span>
                             </h4>
@@ -686,9 +658,6 @@
                                         <small><strong>Username:</strong> segal_employee</small><br>
                                         <small><strong>Password:</strong> segalemp123</small>
                                     </div>
-                                </div>
-                                <div class="mt-2">
-                                    <small class="text-muted">Admin: admin / admin123</small>
                                 </div>
                             </div>
                         </div>
@@ -739,9 +708,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                     <div style="width: 32px; height: 32px; margin-right: 16px; position: relative;">
-                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
-                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
-                                        <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
+                                        <div style="width: 100%; height: 100%; background: white; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
                                     </div>
                                     <div>
                                         <h5 class="mb-1">Segal RetireHub | <span id="dashboardCompany"></span></h5>
@@ -828,9 +795,7 @@
         <div class="container mt-4">
             <h2 class="section-title d-flex align-items-center">
                 <div style="width: 36px; height: 36px; margin-right: 16px; position: relative;">
-                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute;"></div>
-                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
-                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
+                    <div style="width: 100%; height: 100%; background: var(--segal-turquoise); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
                 </div>
                 <span>Segal Admin Panel</span>
             </h2>
@@ -1022,9 +987,7 @@
                 <div class="col-md-6">
                     <h5 class="d-flex align-items-center mb-3">
                         <div style="width: 28px; height: 28px; margin-right: 12px; position: relative;">
-                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute;"></div>
-                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(45deg);"></div>
-                            <div style="width: 100%; height: 100%; background: white; border-radius: 2px; position: absolute; transform: rotate(-45deg);"></div>
+                            <div style="width: 100%; height: 100%; background: white; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);"></div>
                         </div>
                         <span>Segal RetireHub</span>
                     </h5>
